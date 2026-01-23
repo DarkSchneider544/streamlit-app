@@ -91,26 +91,20 @@ newgrp docker
    cd hello-world-streamlit
    ```
 
-2. **Create and activate a virtual environment**
 
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies**
+2. **Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Run the application**
+3. **Run the application**
 
    ```bash
    streamlit run app.py
    ```
 
-5. **Open your browser**
+4. **Open your browser**
 
    ```
    http://localhost:8501

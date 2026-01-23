@@ -186,37 +186,7 @@ git tag -a v1.0.0 -m "Release v1.0.0: Initial release"
 git push origin --tags
 ```
 
-## ☁️ Deployment
 
-### Option 1: Streamlit Community Cloud (Free)
-
-1. Push your code to GitHub
-2. Visit [share.streamlit.io](https://share.streamlit.io)
-3. Connect your repository
-4. Deploy! 
-
-### Option 2: Docker Hub
-
-```bash
-# Login to Docker Hub
-docker login
-
-# Tag your image
-docker tag streamlit-hello-world: latest yourusername/streamlit-hello-world:v1.0.0
-
-# Push to Docker Hub
-docker push yourusername/streamlit-hello-world:v1.0.0
-```
-
-### Option 3: Cloud Platforms
-
-The Docker image can be deployed to:
-- AWS ECS / EC2
-- Google Cloud Run
-- Azure Container Apps
-- DigitalOcean App Platform
-- Render.com
-- Railway. app
 
 ## 🤝 Contributing
 

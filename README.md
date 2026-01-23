@@ -1,11 +1,13 @@
 # 👋 Hello World Streamlit App
 
-A simple, containerized Hello World application built with Streamlit featuring interactive elements. 
+A simple, containerized Hello World application built with Streamlit featuring interactive elements.
 
-![Python](https://img.shields.io/badge/Python-3.11-blue? logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.31.0-FF4B4B?logo=streamlit&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+---
 
 ## 📋 Table of Contents
 
@@ -13,22 +15,25 @@ A simple, containerized Hello World application built with Streamlit featuring i
 - [Demo](#-demo)
 - [Prerequisites](#-prerequisites)
 - [Installation](#-installation)
-  - [Local Setup](#local-setup)
+  - [Local Setup (Ubuntu)](#local-setup-ubuntu)
   - [Docker Setup](#docker-setup)
 - [Usage](#-usage)
 - [Project Structure](#-project-structure)
 - [Git Workflow](#-git-workflow)
-- [Deployment](#-deployment)
 - [Contributing](#-contributing)
 - [License](#-license)
 
+---
+
 ## ✨ Features
 
-- 🎯 Simple and clean Hello World interface
-- 📝 Interactive text input for personalized greetings
-- 🎚️ Slider component for user interaction
-- 🐳 Fully containerized with Docker
-- 🚀 Ready for cloud deployment
+- 🎯 Simple and clean Hello World interface  
+- 📝 Interactive text input for personalized greetings  
+- 🎚️ Slider component for user interaction  
+- 🐳 Fully containerized with Docker  
+- 🚀 Ready for cloud deployment  
+
+---
 
 ## 🎬 Demo
 
@@ -37,47 +42,76 @@ Once running, the app provides:
 - An excitement level slider with dynamic responses
 - A clean, modern UI powered by Streamlit
 
+---
+
 ## 📦 Prerequisites
 
-### For Local Development
-- Python 3.11 or higher
-- pip (Python package manager)
+### For Local Development (Ubuntu)
+
+- Ubuntu 20.04+
+- Python 3.11
+- pip
+- virtualenv (recommended)
+
+Install prerequisites:
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-pip python3-venv
+```
 
 ### For Docker
-- Docker Desktop ([Download here](https://www.docker.com/products/docker-desktop/))
+
+Install Docker on Ubuntu:
+
+```bash
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+(Optional) Run Docker without sudo:
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+---
 
 ## 🛠️ Installation
 
-### Local Setup
+### Local Setup (Ubuntu)
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/hello-world-streamlit.git
    cd hello-world-streamlit
    ```
 
-2. **Create a virtual environment (recommended)**
+2. **Create and activate a virtual environment**
+
    ```bash
-   python -m venv venv
-   
-   # On Windows
-   venv\Scripts\activate
-   
-   # On macOS/Linux
+   python3 -m venv venv
    source venv/bin/activate
    ```
 
 3. **Install dependencies**
+
    ```bash
-   pip install -r requirements. txt
+   pip install -r requirements.txt
    ```
 
 4. **Run the application**
+
    ```bash
-   streamlit run hello_world_app. py
+   streamlit run app.py
    ```
 
 5. **Open your browser**
+
    ```
    http://localhost:8501
    ```
@@ -85,60 +119,72 @@ Once running, the app provides:
 ### Docker Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/hello-world-streamlit.git
    cd hello-world-streamlit
    ```
 
 2. **Build the Docker image**
+
    ```bash
    docker build -t streamlit-hello-world .
    ```
 
 3. **Run the container**
+
    ```bash
    docker run -d -p 8501:8501 --name streamlit-app streamlit-hello-world
    ```
 
 4. **Open your browser**
+
    ```
    http://localhost:8501
    ```
 
+---
+
 ## 🚀 Usage
 
-### Docker Commands
+### Useful Docker Commands
 
 | Command | Description |
 |---------|-------------|
 | `docker ps` | List running containers |
 | `docker logs streamlit-app` | View container logs |
 | `docker stop streamlit-app` | Stop the container |
-| `docker start streamlit-app` | Start a stopped container |
+| `docker start streamlit-app` | Start the container |
 | `docker rm streamlit-app` | Remove the container |
 | `docker rmi streamlit-hello-world` | Remove the image |
 
-### Running on a Different Port
+### Run on a Different Port
 
-If port 8501 is already in use:
 ```bash
-docker run -d -p 8502:8501 --name streamlit-app streamlit-hello-world:latest
+docker run -d -p 8502:8501 --name streamlit-app streamlit-hello-world
 ```
-Then access at `http://localhost:8502`
+
+Access:
+
+```
+http://localhost:8502
+```
+
+---
 
 ## 📁 Project Structure
 
 ```
 hello-world-streamlit/
-├── app.py    # Main Streamlit application
-├── requirements.txt      # Python dependencies
-├── Dockerfile            # Docker configuration
-├── README.md             # Project documentation
+├── app.py                 # Main Streamlit application
+├── requirements.txt       # Python dependencies
+├── Dockerfile             # Docker configuration
+├── README.md              # Project documentation
 ```
 
-## 🌿 Git Workflow
+---
 
-This project follows a branching strategy:
+## 🌿 Git Workflow
 
 ```
 main
@@ -150,52 +196,20 @@ main
   └── v1.0.0 (tagged release)
 ```
 
-### Branches
-
-| Branch | Purpose |
-|--------|---------|
-| `main` | Production-ready code |
-| `development` | Integration branch for features |
-| `feature/dockerization` | Docker-related configurations |
-
-### Creating a New Feature
+### Create a Feature Branch
 
 ```bash
-# Create a new feature branch
 git checkout -b feature/your-feature-name
-
-# Make changes and commit
 git add .
 git commit -m "Add your feature"
-
-# Push to remote
 git push origin feature/your-feature-name
-
-# Merge to development (after review)
-git checkout development
-git merge feature/your-feature-name
 ```
 
-### Creating a Release
+### Create a Release Tag
 
 ```bash
-# Tag a new version
 git tag -a v1.0.0 -m "Release v1.0.0: Initial release"
-
-# Push tags to remote
 git push origin --tags
 ```
 
-
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-
+---
